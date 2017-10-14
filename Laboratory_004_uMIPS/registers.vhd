@@ -13,7 +13,7 @@ use IEEE.numeric_std.all;
 
 entity registers is 
 	port (
-    
+        clock: in std_logic;
 		reg_write: in std_logic;
 		read_reg_1, read_reg_2, write_reg: in std_logic_vector(4 downto 0);
 		write_data: in std_logic_vector(31 downto 0);
@@ -67,10 +67,11 @@ architecture beh of registers is
 
     process(reg_write)
         begin
-        if reg_write='1' then
-            -- write to reg. mem. when the reg_write flag is set and on a falling clock
-            reg_mem(to_integer(unsigned(write_reg))) <= write_data;
-        end if;
+            if (clock'event and clock='1') then
+                if (reg_write='1') then
+                    reg_mem(to_integer(unsigned(write_reg))) <= write_data;
+                end if;
+            end if; 
     end process;
 
 end beh;

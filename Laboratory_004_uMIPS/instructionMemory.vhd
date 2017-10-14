@@ -7,14 +7,14 @@ use ieee.numeric_std.all;               -- for type conversions
 use ieee.math_real.all;                 -- for the ceiling and log constant calculation functions
 
 
-entity instructionMemory is
+entity instruction_memory is
 	port (
 		address: in std_logic_vector(3 downto 0);
 		data: out std_logic_vector(31 downto 0)
 	);
-end instructionMemory;
+end instruction_memory;
 
-architecture instructionMemory_arc of instructionMemory is
+architecture instruction_memory_arc of instruction_memory is
 	type instrMem is array(0 to 15) of STD_LOGIC_VECTOR (31 downto 0);
 	signal memory: mem_array := (
 		"00000000010000010001100000100000", -- add $3, $1, $2
@@ -29,4 +29,4 @@ begin
 		begin
 		  data <= memory(to_integer(unsigned(address)))
 	end process;
-end instructionMemory_arc;
+end instruction_memory_arc;

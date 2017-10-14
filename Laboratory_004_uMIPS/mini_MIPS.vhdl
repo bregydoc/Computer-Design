@@ -5,7 +5,6 @@ use ieee.numeric_std.all;               -- for type conversions
 use ieee.math_real.all;                 -- for the ceiling and log constant calculation functions
 
 
-
 entity mini_MIPS is
   port (
 	address: in std_logic_vector(3 downto 0);
@@ -17,8 +16,9 @@ entity mini_MIPS is
 
 	Z: out std_logic;
 	aluRes: out std_logic_vector(31 downto 0);
-	regOut: out std_logic_vector(31 downto 0)
-  
+	regOut: out std_logic_vector(31 downto 0);
+  	
+  	clock: in std_logic
   );
 
 
@@ -34,12 +34,23 @@ architecture arch of mini_MIPS is
 			alu_result: out std_logic_vector(31 downto 0)
 		);
 	end component alu;
+
 	component instructions_memory is
 		port (
 			address: in std_logic_vector(3 downto 0);
 			data: out std_logic_vector(31 downto 0)
 		);
 	end component instructions_memory;
+
+	component register_memory is
+		port (
+	        clock: in std_logic;
+			reg_write: in std_logic;
+			read_reg_1, read_reg_2, write_reg: in std_logic_vector(4 downto 0);
+			write_data: in std_logic_vector(31 downto 0);
+			read_data_1, read_data_2: out std_logic_vector(31 downto 0)
+		);
+	end component register_memory;
 
 	signal instruction: std_logic_vector(31 downto 0);
 	alias opcode is instruction(31 downto 26);
@@ -62,9 +73,15 @@ architecture arch of mini_MIPS is
 	signal alu_zero: std_logic;
 	signal alu_out: std_logic_vector(31 downto 0);
 
+	--Signals for register memory:
+	signal reg_write: std_logic;
+
+
 	--util signals 
 	signal type_op: integer range 0 to 2 := 0; 
 	--signal alu_op_of_instruction: std
+
+
 begin
 	main_alu: alu 
 	port map (
@@ -73,6 +90,17 @@ begin
 		alu_control_fuct => alu_fuct,
 		zero => alu_zero,
 		alu_result => alu_out
+	);
+	
+	reg_memory: register_memory
+	port map (
+		clock => clock,
+		reg_write => reg_write,
+		read_reg_1 => reg_read_reg_1,
+		read_reg_2 => reg_read_reg_2,		
+		write_data => reg_write_data,
+		read_data_1 => reg_read_data_1,
+		read_data_2 => reg_read_data_2
 	);
 
 	use_opcode : process(opcode)
@@ -86,7 +114,9 @@ begin
 	main_process : process(rs, rt, rd, shamt, funct, address)
 	begin
 		if (type_op = 0) then -- R type instructions
-			
+			alu_in1 <= rs;
+			alu_in2 <= rt;
+
 		else -- load, store and brach type
 
 		end if;

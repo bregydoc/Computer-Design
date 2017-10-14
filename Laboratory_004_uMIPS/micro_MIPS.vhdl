@@ -140,18 +140,18 @@ begin
 
 	mux_reg: mux 
 	port map (
-		a <= rt,
-		b <= rd,
-		sel <= regDst,
-		c <= reg_write_data
+		a => rt,
+		b => rd,
+		sel => regDst,
+		c => reg_write_data
 	);
 
 	mux_alu: mux 
 	port map (
-		a <= reg_to_alu_and_mux,
-		b <= sign_y,
-		sel <= aluSrc,
-		c <= mux_alu_c
+		a => reg_to_alu_and_mux,
+		b => sign_y,
+		sel => aluSrc,
+		c => mux_alu_c
 	);
 
 	reg_read_reg_1 <= rs;

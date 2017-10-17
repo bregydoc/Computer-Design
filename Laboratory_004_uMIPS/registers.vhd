@@ -1,11 +1,13 @@
-------------------------------------------------------
--- Register Memory Block
--- 
--- Contains all the registers.
--- 
--- Memory is kept in rows of 32 bits to represent 32-bit
--- registers.
-------------------------------------------------------
+--------------------------------------------------------------------------------
+--                          COMPUTER DESIGN
+--  Laboratory number: 4
+--  Authors: Alexander Ortega & Bregy Malpartida
+
+--  Description of code:
+--  Memory is kept in rows of 32 bits to represent 32-bit
+--  registers.
+--------------------------------------------------------------------------------
+
 
 library IEEE;
 use IEEE.std_logic_1164.all;

@@ -1,3 +1,13 @@
+--------------------------------------------------------------------------------
+--                          COMPUTER DESIGN
+--  Laboratory number: 4
+--  Authors: Alexander Ortega & Bregy Malpartida
+
+--  Description of code:
+--  Little implementation of a sign extend (from 16 to 32 bits length)
+--------------------------------------------------------------------------------
+
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;

@@ -1,3 +1,13 @@
+--------------------------------------------------------------------------------
+-- 							COMPUTER DESIGN
+-- 	Laboratory number: 4
+--	Authors: Alexander Ortega & Bregy Malpartida
+
+--	Description of code:
+-- 	Mini MIPS is a little description of a control of MIPS32, this support
+-- 	only R type instructions 
+--------------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;        -- for addition & counting

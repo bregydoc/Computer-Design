@@ -1,3 +1,12 @@
+--------------------------------------------------------------------------------
+-- 							COMPUTER DESIGN
+-- 	Laboratory number: 4
+--	Authors: Alexander Ortega & Bregy Malpartida
+
+--	Description of code:
+--	Have a useful of R type instructions on a MIPS processor without control
+--------------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;        -- for addition & counting

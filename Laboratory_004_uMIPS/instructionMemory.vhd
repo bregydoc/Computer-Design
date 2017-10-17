@@ -1,3 +1,12 @@
+--------------------------------------------------------------------------------
+-- 							COMPUTER DESIGN
+-- 	Laboratory number: 4
+--	Authors: Alexander Ortega & Bregy Malpartida
+
+--	Description of code:
+--	This code is a simple implementation of a little async memory used  
+--	instruction memory on a MIPS processor
+--------------------------------------------------------------------------------
 
 
 library ieee;

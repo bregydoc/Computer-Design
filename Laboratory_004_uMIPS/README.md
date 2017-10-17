@@ -1,2 +1,3 @@
 # Computer-Design
-Code of all laboratories of computer design at UTEC university
+
+The micro_mips.vhdl file have the base and the integration of all components, the testbench were made whit this file.

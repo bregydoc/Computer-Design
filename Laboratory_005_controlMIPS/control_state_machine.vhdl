@@ -145,7 +145,6 @@ begin
 			when s8=>
 				RegDst <= '1';
 				RegWrite <= '1';
-				MemWrite <= '1';
 				ALUSrc <= '1';
 				ALUOp <= "10";
 				PCWrite <= '1';

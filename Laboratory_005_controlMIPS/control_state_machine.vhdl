@@ -54,6 +54,8 @@ begin
 						------------
 						when "001000" => -- ADDI instruction
 							state <= s8;
+						when others =>
+							null;
 					end case;
 					
 				when s2=>
@@ -62,6 +64,8 @@ begin
 							state <= s3; 
 						when "101011" => -- SW
 							state <= s5;
+						when others =>
+							null;
 					end case;
 					
 				when s3=>
@@ -81,7 +85,9 @@ begin
 
 				when s8=>
 					state <= s0; -- BACK TO s0
-
+			
+				when others =>
+					null;
 
 			end case;
 			
@@ -142,6 +148,9 @@ begin
 				ALUSrc <= '1';
 				ALUOp <= "10";
 				PCWrite <= '1';
+			
+			when others =>
+				null;
 		end case;
 	end process;
 

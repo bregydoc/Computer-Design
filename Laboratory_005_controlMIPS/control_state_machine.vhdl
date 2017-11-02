@@ -102,9 +102,9 @@ begin
 				RegDst <= '0';
 				ALUSrc <= '0';
 				MemtoReg <= '0';
-				RegWrite <= '1';
+				RegWrite <= '0';
 				MemRead <= '0';
-				MemWrite <= '1';
+				MemWrite <= '0';
 				Branch <= '0';
 				ALUOp <= "00";
 				Jump <= '0';

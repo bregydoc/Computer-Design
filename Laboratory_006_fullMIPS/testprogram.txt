@@ -1,0 +1,12 @@
+addi $t0, $0, 0x42
+j later
+earlier:
+addi $t1, $0, 0x4
+sub $t2, $t, $t1 
+or $t3, $t2, $t0
+sw $t3, 0x2C($0)
+lw $t4, 0x28($t1)
+done:
+j done
+later:
+beq $0, $0, earlier
